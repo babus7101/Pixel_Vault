@@ -112,35 +112,6 @@ Tests use [moto](https://github.com/getmoto/moto) to mock AWS services — no Do
 ```bash
 python -m pytest tests/ -v --cov=src --cov-report=term-missing
 ```
-
-## Project Structure
-
-```
-pixelvault-api/
-├── docker-compose.yml           # LocalStack container
-├── setup_localstack.sh          # Create S3 bucket + DynamoDB table
-├── deploy_localstack.sh         # Package & deploy Lambdas + API Gateway
-├── requirements.txt             # Runtime dependencies
-├── requirements-dev.txt         # Dev/test dependencies
-├── src/
-│   ├── handlers/
-│   │   ├── upload.py            # POST /images
-│   │   ├── list_images.py       # GET /images
-│   │   ├── get_image.py         # GET /images/{image_id}
-│   │   └── delete_image.py      # DELETE /images/{image_id}
-│   └── utils/
-│       ├── aws_clients.py       # Boto3 client factories
-│       └── response.py          # HTTP response helpers
-├── tests/
-│   ├── conftest.py              # Shared fixtures (moto mocks)
-│   ├── test_upload.py           # 17 tests
-│   ├── test_list_images.py      # 12 tests
-│   ├── test_get_image.py        # 6 tests
-│   └── test_delete_image.py     # 9 tests
-├── API.md                       # Full API documentation
-└── README.md                    # This file
-```
-
 ## API Reference
 
 See [API.md](API.md) for complete endpoint documentation with request/response examples.
